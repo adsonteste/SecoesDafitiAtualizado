@@ -181,7 +181,8 @@ const DafitiTracker: React.FC = () => {
         // Buscar colunas com termos mais específicos
         const referenciaIndex = findColumnIndex(headers, ['referência', 'referencia', 'ref']);
         const ocorrenciaIndex = findColumnIndex(headers, ['última ocorrência', 'ultima ocorrencia', 'ocorrencia']);
-        const dataIndex = findColumnIndex(headers, ['dt. últ. ocorrência', 'data ultima ocorrencia', 'data']);
+        // CORREÇÃO: Buscar especificamente pela coluna "Dt. Últ. Ocorrência" (coluna F)
+        const dataIndex = findColumnIndex(headers, ['dt. últ. ocorrência', 'dt últ ocorrência', 'dt ult ocorrencia']);
         const servicoIndex = findColumnIndex(headers, ['serviço', 'servico']); // Busca específica por serviço
         const valorIndex = findColumnIndex(headers, ['vlr mercadoria', 'valor mercadoria', 'vlr']);
 
@@ -192,6 +193,18 @@ const DafitiTracker: React.FC = () => {
           servicoIndex,
           valorIndex
         });
+
+        // Verificar se a coluna de data foi encontrada corretamente
+        if (dataIndex === -1) {
+          console.warn('⚠️ Coluna "Dt. Últ. Ocorrência" não encontrada. Verificando colunas disponíveis...');
+          console.log('Cabeçalhos disponíveis:', headers.map((h, i) => `${i}: ${h}`));
+          
+          // Se não encontrar, tentar usar a coluna F (índice 5) diretamente
+          const fallbackDataIndex = 5; // Coluna F
+          if (headers[fallbackDataIndex]) {
+            console.log(`🔄 Usando coluna F (índice ${fallbackDataIndex}): "${headers[fallbackDataIndex]}"`);
+          }
+        }
 
         if (referenciaIndex === -1 || ocorrenciaIndex === -1 || servicoIndex === -1) {
           setError(`Colunas obrigatórias não encontradas. Verifique se o arquivo contém as colunas: Referência, Última Ocorrência e Serviço.`);
@@ -212,7 +225,8 @@ const DafitiTracker: React.FC = () => {
             
             const referencia = String(row[referenciaIndex] || '').trim();
             const ultimaOcorrencia = String(row[ocorrenciaIndex] || '').trim();
-            const dataRaw = row[dataIndex] || '';
+            // CORREÇÃO: Usar a coluna correta para data ou fallback para coluna F
+            const dataRaw = row[dataIndex !== -1 ? dataIndex : 5] || '';
             const servico = String(row[servicoIndex] || '').trim();
             const valorNFBruto = valorIndex !== -1 ? String(row[valorIndex] || '').trim() : '0';
 
@@ -221,7 +235,8 @@ const DafitiTracker: React.FC = () => {
                 referencia,
                 ultimaOcorrencia,
                 servico,
-                dataRaw
+                dataRaw,
+                dataColumn: dataIndex !== -1 ? `Coluna ${dataIndex}` : 'Coluna F (fallback)'
               });
             }
 
