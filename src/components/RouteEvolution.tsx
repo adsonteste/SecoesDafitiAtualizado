@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 function RouteEvolution() {
   useEffect(() => {
     // Redireciona automaticamente quando o componente é montado
-    window.open('https://evolutivo-7-0.vercel.app/', '_blank', 'noopener,noreferrer');
+    window.open('https://evolutivo-geral.vercel.app/', '_blank', 'noopener,noreferrer');
   }, []);
 
   return (
