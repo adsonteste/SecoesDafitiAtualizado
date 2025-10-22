@@ -25,7 +25,7 @@ const SystemSelection: React.FC<SystemSelectionProps> = ({ onSelect }) => {
           className="flex flex-col items-center p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg border-2 border-blue-200 hover:border-blue-400 transition-all duration-300 group"
         >
           <FileSearch className="w-16 h-16 text-blue-600 mb-4 group-hover:scale-110 transition-transform" />
-          <h3 className="text-xl font-semibold text-blue-800 mb-2">Romaneios</h3>
+          <h3 className="text-xl font-semibold text-blue-800 mb-2">Comparativo</h3>
           <p className="text-blue-600 text-center text-sm">
             Compare pedidos entre sistemas R2PP e Riachuelo
           </p>
@@ -37,9 +37,9 @@ const SystemSelection: React.FC<SystemSelectionProps> = ({ onSelect }) => {
           className="flex flex-col items-center p-8 bg-gradient-to-br from-amber-50 to-amber-100 rounded-lg border-2 border-amber-200 hover:border-amber-400 transition-all duration-300 group"
         >
           <AlertTriangle className="w-16 h-16 text-amber-600 mb-4 group-hover:scale-110 transition-transform" />
-          <h3 className="text-xl font-semibold text-amber-800 mb-2">Tracking Insucessos</h3>
+          <h3 className="text-xl font-semibold text-amber-800 mb-2">Romaneio Driver</h3>
           <p className="text-amber-600 text-center text-sm">
-            Gerencie e analise insucessos do sistema
+            Gerar romaneio dos motoristas
           </p>
         </button>
 
@@ -49,9 +49,9 @@ const SystemSelection: React.FC<SystemSelectionProps> = ({ onSelect }) => {
           className="flex flex-col items-center p-8 bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg border-2 border-purple-200 hover:border-purple-400 transition-all duration-300 group"
         >
           <ShoppingBag className="w-16 h-16 text-purple-600 mb-4 group-hover:scale-110 transition-transform" />
-          <h3 className="text-xl font-semibold text-purple-800 mb-2">Tracking Dafiti</h3>
+          <h3 className="text-xl font-semibold text-purple-800 mb-2">Gerar Rotas</h3>
           <p className="text-purple-600 text-center text-sm">
-            Gerencie pedidos do sistema Dafiti
+            Montar word de rotas para etiquetagem e expedição
           </p>
         </button>
 

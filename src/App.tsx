@@ -5,7 +5,6 @@ import { FileProvider } from './context/FileContext';
 import Header from './components/Header';
 import SystemSelection from './components/SystemSelection';
 import DafitiTracker from './components/DafitiTracker';
-import RouteEvolution from './components/RouteEvolution';
 import { ArrowLeft } from 'lucide-react';
 
 function App() {
@@ -14,9 +13,16 @@ function App() {
 
   const handleSystemSelect = (system: 'comparador' | 'insucessos' | 'dafiti' | 'evolutivo') => {
     if (system === 'insucessos') {
-      window.location.href = 'https://traking-insucessos.vercel.app';
+      window.location.href = 'https://romaneio-circuit.vercel.app/';
       return;
     }
+
+    if (system === 'evolutivo') {
+      // ✅ Redireciona na mesma aba e mantém histórico (botão "voltar" funciona)
+      window.location.href = 'https://evolutivo-geral.vercel.app/';
+      return;
+    }
+
     setSelectedSystem(system);
     setShowHeader(false);
   };
@@ -61,12 +67,6 @@ function App() {
           {selectedSystem === 'dafiti' && (
             <div className="w-full">
               <DafitiTracker />
-            </div>
-          )}
-          
-          {selectedSystem === 'evolutivo' && (
-            <div className="w-full">
-              <RouteEvolution />
             </div>
           )}
         </main>
