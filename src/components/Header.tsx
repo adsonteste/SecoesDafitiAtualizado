@@ -12,7 +12,7 @@ const Header: React.FC = () => {
               alt="logo"
               className="w-10 h-10 rounded-full object-cover"
             />
-            <h1 className="text-2xl font-bold">Sistema R2PP</h1>
+            <h1 className="text-2xl font-bold">Sistema Neres</h1>
           </div>
           <div className="text-sm md:text-base">
             Gestão de Pedidos e Insucessos
