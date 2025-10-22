@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import FileUploadSection from './components/FileUploadSection';
 import ResultsSection from './components/ResultsSection';
 import { FileProvider } from './context/FileContext';
 import Header from './components/Header';
 import SystemSelection from './components/SystemSelection';
 import DafitiTracker from './components/DafitiTracker';
-import { ArrowLeft } from 'lucide-react';
 
 function App() {
   const [selectedSystem, setSelectedSystem] = useState<'none' | 'comparador' | 'insucessos' | 'dafiti' | 'evolutivo'>('none');
@@ -39,13 +38,15 @@ function App() {
         <main className="flex-1">
           {selectedSystem !== 'none' && (
             <div className="px-4">
-              <button
-                onClick={handleBack}
-                className="mb-6 flex items-center text-gray-600 hover:text-gray-800 transition-colors"
-              >
-                <ArrowLeft className="w-5 h-5 mr-2" />
-                Voltar para Seleção
-              </button>
+              <div className="max-w-6xl mx-auto py-4">
+                <button
+                  type="button"
+                  onClick={handleBack}
+                  className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                >
+                  Voltar
+                </button>
+              </div>
             </div>
           )}
           
