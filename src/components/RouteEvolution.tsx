@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 function RouteEvolution() {
   useEffect(() => {
     // Redireciona automaticamente quando o componente é montado
-    window.open('https://evolutivo-geral.vercel.app/', '_blank', 'noopener,noreferrer');
+    window.open('https://rotasevo.vercel.app/', '_blank', 'noopener,noreferrer');
   }, []);
 
   return (
@@ -22,7 +22,7 @@ function RouteEvolution() {
           
           <div className="mt-6">
             <a 
-              href="https://evolutivo-7-0.vercel.app/" 
+              href="https://rotasevo.vercel.app/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-green-600 hover:text-green-700 underline text-sm"

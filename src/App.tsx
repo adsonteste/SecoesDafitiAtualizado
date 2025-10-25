@@ -18,7 +18,7 @@ function App() {
 
     if (system === 'evolutivo') {
       // ✅ Redireciona na mesma aba e mantém histórico (botão "voltar" funciona)
-      window.location.href = 'https://evolutivo-geral.vercel.app/';
+      window.location.href = 'https://rotasevo.vercel.app/';
       return;
     }
 
